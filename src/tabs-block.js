@@ -77,8 +77,36 @@ function tabsBlock () {
   })
 }
 
+/*
 function register (registry) {
   registry.block('tabs', tabsBlock)
 }
 
 module.exports.register = register
+*/
+
+module.exports.register = function (registry, config = {}) {
+  function doRegister (registry) {
+    // if (typeof registry.docinfoProcessor === 'function') {
+    // registry.docinfoProcessor(tabsetDocinfoProcessor)
+    // } else {
+    //   console.warn('no \'docinfoProcessor\' method on alleged registry')
+    // }
+    if (typeof registry.block === 'function') {
+      registry.block('tabs', tabsBlock)
+    } else {
+      console.warn('no \'block\' method on alleged registry')
+    }
+  }
+
+  if (typeof registry.register === 'function') {
+    registry.register(function () {
+      //Capture the global registry so processors can register more extensions.
+      registry = this
+      doRegister(registry)
+    })
+  } else {
+    doRegister(registry)
+  }
+  return registry
+}
