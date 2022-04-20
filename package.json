@@ -1,0 +1,20 @@
+{
+  "name": "asciidoctor-tabs-block-extension",
+  "version": "0.0.1-p1",
+  "type": "commonjs",
+  "description": "asciidoctor tabs block extension",
+  "author": {
+    "name": "Dan Allen",
+    "email": "dan@opendevise.com"
+  },
+  "license": "MPL-2.0",
+  "main": "src/tabs-block.js",
+  "files": [
+    "src/*.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@asciidoctor/core": "^2.2.0",
+    "asciidoctor-opal-runtime": "^2.1.0"
+  }
+}
