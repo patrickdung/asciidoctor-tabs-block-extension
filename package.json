@@ -16,7 +16,9 @@
   "license": "MPL-2.0",
   "main": "src/tabs-block.js",
   "files": [
-    "src/*.js"
+    "src/*.js",
+    "ui/*.js",
+    "ui/*.css"
   ],
   "dependencies": {},
   "devDependencies": {
