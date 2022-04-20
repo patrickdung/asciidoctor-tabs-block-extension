@@ -7,6 +7,12 @@
     "name": "Dan Allen",
     "email": "dan@opendevise.com"
   },
+  "contributors": [
+    {
+      "name": "David Jencks",
+      "email": "djencks@apache.org"
+    }
+  ],
   "license": "MPL-2.0",
   "main": "src/tabs-block.js",
   "files": [

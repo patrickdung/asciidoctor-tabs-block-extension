@@ -1,0 +1,287 @@
+/* SPDX-License-Identifier: MPL 2.0 */
+:root {
+  /* NOTE tint colors are 15% transparent */
+  /* primary */
+  --color-brand-primary: #262626;
+  --color-brand-black: #000;
+  --color-brand-red: #ea2328;
+  --color-brand-red-tint: #fcdedf;
+  --color-brand-white: #fff;
+  /* secondary */
+  --color-brand-secondary: #fff;
+  --color-brand-blue: #4287d6;
+  --color-blue-rgb: 87, 160, 255;
+  --color-brand-light-blue: #00ace0;
+  --color-brand-light-blue-tint: #d9f3fb;
+  --color-brand-pink: #eb4971;
+  --color-brand-green: #00b9be;
+  --color-brand-purple: #b36cdb;
+  --color-brand-purple-tint: #f4e9fa;
+  --color-brand-tip: #2ca01c;
+  --color-brand-note: #0074e0;
+  --color-brand-important: #b36cdb;
+  --color-brand-warning: #ea2328;
+  --color-brand-caution: #ff8f00;
+  /* tertiary */
+  --color-gray-rgb: 115, 118, 138;
+  --color-brand-gray1: #292b36;
+  --color-brand-gray2: #3d4151;
+  --color-brand-gray3: #52566c;
+  --color-brand-gray4: #73768a;
+  --color-brand-gray5: #c8cbdf;
+  --color-brand-gray6: #eaebf1;
+  --color-brand-gray7: #f9f9f9;
+  --color-brand-gray8: #e5e5e5;
+  --color-brand-gray9: #bfbfbf;
+  /* --color-brand-silver: #ccc; */
+  --color-brand-silver: #c1c1c1;
+  --color-brand-blue-secondary: #0074e0;
+  --color-brand-blue-secondary-light: #2689e5;
+  --color-brand-blue-secondary-extra-light: #73b3ee;
+  --color-brand-blue-tint: #d9eafb;
+  --color-brand-grey: #666;
+  --color-brand-orange: #fc9c0c;
+  --color-brand-orange-tint: #fff0da;
+  --color-muted: var(--color-brand-gray);
+  --color-text: #333;
+  --color-code: var(--color-brand-pink);
+  --color-border: var(--color-brand-silver);
+  --checkbox-border-color: var(--color-brand-gray9);
+
+  --base-space: 1rem; /* ~ 16px */
+  --base-small-space: 0.75rem; /* ~ 12px */
+  --base-extra-small-space: 0.5rem; /* ~ 8px */
+  --base-medium-space: 1.5rem; /* ~ 24px */
+  --base-large-space: 2rem; /* ~ 32px */
+  --base-extra-large-space: 2.5rem; /* ~ 40px */
+  /* Font weight */
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+}
+
+.adoctabs.ulist {
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.adoctabs ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 -0.25rem 0 0;
+  padding: 0;
+}
+
+.adoctabs li {
+  align-items: center;
+  border: 1px solid black;
+  border-bottom: 0;
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  height: 2.5rem;
+  line-height: 1;
+  margin-right: 0.25rem;
+  padding: 0 1.5rem;
+  position: relative;
+  /* to revert the effect of prose-[size] li */
+  margin-top: revert;
+  margin-bottom: revert;
+}
+
+.adoctabs.ulist li {
+  margin-bottom: 0;
+}
+
+.ulist li .paragraph:first-child,
+.olist li .paragraph:first-child,
+.dlist li .paragraph:first-child {
+  margin-top: 0.5rem;
+}
+
+.adoctabs li + li {
+  margin-top: 0;
+}
+
+.tabset.is-loading .adoctabs li:not(:first-child),
+.tabset:not(.is-loading) .adoctabs li:not(.is-active) {
+  /*background-color: black;*/
+  color: grey;
+}
+
+.tabset.is-loading .adoctabs li:first-child::after,
+.adoctabs li.is-active::after {
+  background-color: white;
+  content: "";
+  display: block;
+  height: 3px; /* Chrome doesn't always paint the line accurately, so add a little extra */
+  position: absolute;
+  bottom: -1.5px;
+  left: 0;
+  right: 0;
+}
+
+.tabset > .content {
+  border: 1px solid gray;
+  //padding: 1.25rem;
+  padding-top: 0.75rem;
+  width: 100%;
+}
+
+.tabset.is-loading .tab-pane:not(:first-child),
+.tabset:not(.is-loading) .tab-pane:not(.is-active) {
+  display: none;
+}
+
+.tab-pane > :first-child {
+  margin-top: 0;
+}
+
+
+/* Dropdown button functionaltiy css */
+.tabset .dropddown-btn {
+  display: none;
+}
+
+.adoctabs ul.hide {
+  display: none;
+}
+
+.tabset {
+  position: relative;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* .active-tab-item-row {
+  display: inline-block;
+  max-width: 60%;
+} */
+
+/* .active-tab-item-row a {
+  align-items: center;
+  color: var(--color-brand-gray1);
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  cursor: pointer;
+  display: flex;
+  font-weight: var(--weight-bold);
+  min-height: 2.5rem;
+  line-height: 1;
+  padding: 0 1.5rem 5px;
+  position: relative;
+  text-decoration: none;
+}
+.active-tab-item-row a::after {
+  background-color: var(--color-brand-white);
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  bottom: -1.5px;
+  left: 0;
+  right: 0;
+} */
+.ulist.adoctabs {
+  margin: 0;
+  width: 100%;
+  display: flex;
+}
+
+.other-tab-box {
+  position: relative;
+  margin-left: var(--base-large-space);
+}
+
+.adoctabs .dropddown-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--color-brand-blue-secondary);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: var(--weight-normal);
+  /* border-bottom: 1px solid var(--color-border); */
+}
+
+.adoctabs .dropddown-btn .fas {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.adoctabs .dropddown-btn:focus,
+.adoctabs .dropddown-btn:hover {
+  outline: none;
+  text-decoration: none;
+}
+
+.adoctabs ul.other-tablist {
+  box-shadow: 0 3px 10px #0000000f;
+  border: 1px solid var(--color-brand-gray8);
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 120px;
+  display: none;
+  overflow-y: auto;
+  background-color: var(--color-brand-white);
+}
+
+.adoctabs ul.other-tablist p {
+  width: 100%;
+  height: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .doc .tabset:not(.is-loading) .tabs li:not(.is-active) {
+  background: var(--color-brand-white);
+  min-height: 2.5rem;
+  height: auto;
+  padding: 0.75rem;
+}
+.doc .tabs li.is-active {
+  display: none;
+} */
+
+.adoctabs ul.other-tablist li {
+  width: 100%;
+  flex-wrap: wrap;
+  margin-right: var(--base-space);
+  border-top: 0;
+  /* border-bottom: 1px solid var(--color-border); */
+}
+
+.adoctabs ul.other-tablist li.is-active p,
+.adoctabs ul.other-tablist li p:hover {
+  background-color: var(--color-brand-gray7);
+}
+
+.adoctabs ul.other-tablist li.is-active::before,
+.adoctabs ul.other-tablist li:hover::before {
+  content: none;
+}
+
+.adoctabs ul.other-tablist.show {
+  display: block;
+}
+
+.other-tab-box.desktop-hide {
+  display: none;
+}
+
+/* Media css  */
+@media screen and (max-width: 540px) {
+  .other-tab-box.desktop-hide {
+    display: block;
+  }
+}
