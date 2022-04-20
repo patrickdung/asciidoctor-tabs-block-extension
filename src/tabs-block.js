@@ -10,7 +10,7 @@
  *
  * Usage:
  *
- *  [tabs]
+ *  [adoctabs]
  *  ====
  *  Tab A::
  *  +
@@ -37,7 +37,7 @@ const generateId = (str, idx) =>
   `tabset${idx}_${str.toLowerCase().replace(InvalidIdCharsRx, IdSeparatorCh).replace(ExtraIdSeparatorsRx, '$1')}`
 
 function tabsBlock () {
-  this.named('tabs')
+  this.named('adoctabs')
   this.onContext('example')
   this.process((parent, reader, attrs) => {
     const createHtmlFragment = (html) => this.createBlock(parent, 'pass', html)
@@ -49,7 +49,7 @@ function tabsBlock () {
     if (!(sourceTabs && sourceTabs.getContext() === 'dlist' && sourceTabs.getItems().length)) return
     //const tabs = List.$new(parent, 'ulist')
     const tabs = this.createList(parent, 'ulist')
-    tabs.addRole('tabs')
+    tabs.addRole('adoctabs')
     const panes = {}
     sourceTabs.getItems().forEach(([[title], details]) => {
       //const tab = ListItem.$new(tabs)
@@ -93,7 +93,7 @@ module.exports.register = function (registry, config = {}) {
     //   console.warn('no \'docinfoProcessor\' method on alleged registry')
     // }
     if (typeof registry.block === 'function') {
-      registry.block('tabs', tabsBlock)
+      registry.block('adoctabs', tabsBlock)
     } else {
       console.warn('no \'block\' method on alleged registry')
     }
